@@ -9,29 +9,62 @@
         :root { --bg: #F9F7F2; --text: #2C3E50; --accent: #A68966; --white: #ffffff; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; line-height: 1.6; }
         .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; text-align: center; }
-        h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 10px; }
-        .subtitle { font-size: 1rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 30px; }
-        .intro-box { background: var(--white); padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .btn { display: inline-block; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; margin: 10px; border: 2px solid var(--accent); transition: 0.3s; }
-        .btn-work { background: var(--accent); color: var(--white); }
-        .btn-cert { color: var(--accent); }
-        .dashboard-img { width: 100%; border-radius: 10px; margin-top: 40px; border: 5px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        
+        p.subtitle { font-size: 0.9rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0 0 30px 0; color: #1a252f; }
+        
+        .intro-box { background: var(--white); padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); margin-bottom: 60px; }
+        .intro-box p { font-size: 1.1rem; margin-bottom: 35px; color: #4a5568; }
+
+        /* Horizontal Buttons Fix */
+        .btn-group { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .btn { flex: 1; max-width: 200px; min-width: 150px; padding: 14px 0; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.95rem; border: 2px solid var(--accent); transition: 0.3s; text-align: center; }
+        .btn-fill { background: var(--accent); color: var(--white); }
+        .btn-fill:hover { background: #8e7355; border-color: #8e7355; transform: translateY(-2px); }
+
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; margin-top: 60px; }
+        .dashboard-img { width: 100%; border-radius: 15px; margin-top: 20px; border: 8px solid white; box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+
+        /* Contact Section */
+        .divider { height: 1px; background: linear-gradient(to right, transparent, var(--accent), transparent); margin: 80px 0 40px; border: none; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; text-align: center; margin-bottom: 40px; }
+        .contact-item h4 { margin: 0; font-size: 0.8rem; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; }
+        .contact-item p, .contact-item a { margin: 5px 0 0; font-size: 1rem; color: var(--text); text-decoration: none; display: block; }
+        
+        footer { padding-bottom: 40px; font-size: 0.85rem; opacity: 0.6; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <p class="subtitle">B.Com Graduate • Data Analyst</p>
-        <h1>Uday Singh</h1>
-        <div class="intro-box">
-            <p>I specialize in <strong>Corporate Finance</strong> and <strong>Data Analytics</strong>. I build dashboards that turn complex data into business insights.</p>
-            <a href="#work" class="btn btn-work">View Dashboard</a>
-            <a href="YOUR_DRIVE_LINK" class="btn btn-cert">Certificates</a>
+
+<div class="container">
+    <p class="subtitle">B.Com Graduate • Data Analyst</p>
+    <h1>Uday Singh</h1>
+    
+    <div class="intro-box">
+        <p>I specialize in <strong>Corporate Finance</strong> and <strong>Data Analytics</strong>. I build dashboards that turn complex data into business insights.</p>
+        
+        <div class="btn-group">
+            <a href="#work" class="btn btn-fill">View Dashboard</a>
+            <a href="YOUR_GOOGLE_DRIVE_LINK_HERE" class="btn btn-fill">Certificates</a>
         </div>
-        <div id="work">
-            <h2 style="margin-top:50px;">Featured Business Dashboard</h2>
-            <img src="dashboard.png" alt="Dashboard" class="dashboard-img">
-        </div>
-        <footer style="margin-top:50px; opacity:0.7;">uday797112singh@gmail.com | Nangloi, Delhi</footer>
     </div>
-</body>
-</html>
+
+    <div id="work">
+        <h2 class="section-title">Featured Business Dashboard</h2>
+        <img src="dashboard.png" alt="Dashboard Preview" class="dashboard-img">
+    </div>
+
+    <hr class="divider">
+
+    <div class="contact-grid">
+        <div class="contact-item">
+            <h4>Email</h4>
+            <p>uday797112singh@gmail.com</p>
+        </div>
+        <div class="contact-item">
+            <h4>Phone</h4>
+            <p>+91 7463801119</p>
+        </div>
+        <div class="contact-item">
+            <h4>Location</h4>
+            <p>Nangloi, Delhi (110041)</p
