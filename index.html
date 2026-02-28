@@ -7,11 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --bg: #FDFCFB; 
-            --text: #232F3E; 
+            --bg: #ffffff; 
+            --text: #1a1a1a; 
             --accent: #A68966; 
-            --white: #ffffff;
-            --soft-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            --secondary: #f9f9f9;
+            --soft-shadow: 0 30px 60px rgba(0,0,0,0.05);
         }
         
         body { 
@@ -19,107 +19,122 @@
             background-color: var(--bg); 
             color: var(--text); 
             margin: 0; 
-            line-height: 1.8; 
+            line-height: 1.6; 
             -webkit-font-smoothing: antialiased;
         }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 100px 24px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 120px 24px; }
         
+        /* Glassmorphism Header Effect */
+        header { text-align: center; margin-bottom: 80px; }
+
         .subtitle { 
-            font-size: 0.8rem; 
+            font-size: 0.75rem; 
             color: var(--accent); 
-            letter-spacing: 4px; 
+            letter-spacing: 5px; 
             text-transform: uppercase; 
-            margin-bottom: 15px; 
+            margin-bottom: 20px; 
             font-weight: 600;
+            display: block;
         }
 
         h1 { 
             font-family: 'Playfair Display', serif; 
-            font-size: clamp(2.5rem, 8vw, 4.2rem); 
-            margin: 0 0 40px 0; 
-            color: #121212; 
-            line-height: 1.1;
+            font-size: clamp(3rem, 10vw, 5rem); 
+            margin: 0; 
+            color: #000; 
+            line-height: 1;
+            font-weight: 700;
         }
         
         .intro-box { 
-            background: var(--white); 
-            padding: 60px 50px; 
-            border-radius: 30px; 
-            box-shadow: var(--soft-shadow); 
-            margin-bottom: 50px;
-            border: 1px solid rgba(166,137,102,0.1);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 100px auto;
         }
 
         .intro-box p { 
-            font-size: 1.2rem; 
-            margin-bottom: 45px; 
-            color: #4a5568; 
+            font-size: 1.25rem; 
+            margin-bottom: 50px; 
+            color: #555; 
             font-weight: 300;
         }
 
-        /* Premium Side-by-Side Buttons */
+        /* High-End Button Styling */
         .btn-group { 
             display: flex; 
             justify-content: center; 
-            gap: 25px; 
+            gap: 20px; 
         }
 
         .btn { 
-            flex: 0 1 220px; 
-            padding: 18px 0; 
-            border-radius: 12px; 
+            padding: 18px 45px; 
+            border-radius: 100px; /* Fully Rounded for Modern Look */
             text-decoration: none; 
             font-weight: 500; 
-            font-size: 0.9rem; 
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            font-size: 0.85rem; 
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1); 
             text-align: center; 
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary {
-            background: var(--accent); 
-            color: var(--white);
-            box-shadow: 0 10px 20px rgba(166,137,102,0.15);
+            background: var(--text); 
+            color: #fff;
+            border: 1px solid var(--text);
         }
 
         .btn-outline {
-            border: 1px solid var(--accent);
-            color: var(--accent);
+            border: 1px solid #e0e0e0;
+            color: var(--text);
         }
 
         .btn:hover { 
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: var(--accent);
         }
 
-        /* Clean Contact Section */
+        .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+
+        /* Modern Contact Grid */
         .contact-section { 
-            margin-top: 100px; 
-            padding: 80px 0; 
-            border-top: 1px solid #eee;
+            margin-top: 150px; 
+            background: var(--secondary);
+            padding: 100px 50px;
+            border-radius: 40px;
         }
 
         .contact-header { 
             font-family: 'Playfair Display', serif; 
-            font-size: 2.5rem; 
-            margin-bottom: 50px; 
+            font-size: 2.8rem; 
+            margin-bottom: 60px; 
             text-align: center;
         }
 
         .contact-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-            gap: 50px; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 40px; 
         }
 
+        .contact-item {
+            padding: 20px;
+            border-bottom: 1px solid #e5e5e5;
+            transition: 0.3s;
+        }
+
+        .contact-item:hover { border-bottom: 1px solid var(--accent); }
+
         .contact-item h4 { 
-            margin: 0 0 12px 0; 
-            font-size: 0.7rem; 
+            margin: 0 0 10px 0; 
+            font-size: 0.65rem; 
             text-transform: uppercase; 
             color: var(--accent); 
-            letter-spacing: 2px; 
+            letter-spacing: 3px; 
         }
 
         .contact-item p, .contact-item a { 
@@ -128,69 +143,60 @@
             color: var(--text); 
             text-decoration: none; 
             font-weight: 400;
-        }
-
-        .contact-item a {
-            border-bottom: 1px solid transparent;
-            transition: 0.3s;
-        }
-
-        .contact-item a:hover { 
-            border-bottom: 1px solid var(--accent);
-            color: var(--accent);
+            word-break: break-all;
         }
 
         footer { 
-            padding: 60px 0; 
-            font-size: 0.8rem; 
-            opacity: 0.4; 
+            padding: 100px 0 50px 0; 
+            font-size: 0.75rem; 
+            opacity: 0.5; 
             text-align: center;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        @media (max-width: 600px) {
-            .btn-group { flex-direction: row; gap: 10px; }
-            .btn { flex: 1; font-size: 0.75rem; padding: 15px 5px; }
-            h1 { font-size: 2.8rem; }
-            .intro-box { padding: 40px 25px; }
+        @media (max-width: 768px) {
+            .btn-group { flex-direction: column; align-items: stretch; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .container { padding: 60px 20px; }
+            .contact-section { padding: 60px 25px; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <header style="text-align: center;">
-        <p class="subtitle">B.Com Graduate • Business Analyst</p>
+    <header>
+        <span class="subtitle">B.Com Graduate • Business Analyst</span>
         <h1>Uday Singh</h1>
     </header>
     
-    <div class="intro-box" style="text-align: center;">
+    <div class="intro-box">
         <p>I am a B.Com Graduate with a strong interest in <strong>Corporate Finance</strong> and <strong>Data related work</strong>. I build dashboards that turn data into clear business insights.</p>
         
         <div class="btn-group">
-    <a href="dashboard.html" class="btn btn-primary">Dashboard</a>
-    
-    <a href="certificate.html" class="btn btn-outline">Certificates</a>
-</div>
-
+            <a href="dashboard.html" class="btn btn-primary">View Dashboard</a>
+            <a href="certificate.html" class="btn btn-outline">Certifications</a>
+        </div>
+    </div>
 
     <div class="contact-section">
-        <div class="contact-header">Connect</div>
+        <div class="contact-header">Let's Connect</div>
         <div class="contact-grid">
             <div class="contact-item">
                 <h4>Email</h4>
                 <p>uday797112singh@gmail.com</p>
             </div>
             <div class="contact-item">
+                <h4>LinkedIn</h4>
+                <a href="https://www.linkedin.com/in/uday-singh-4b6609252" target="_blank">View Professional Profile</a>
+            </div>
+            <div class="contact-item">
                 <h4>Phone</h4>
                 <p>+91 7463801119</p>
             </div>
             <div class="contact-item">
-                <h4>LinkedIn</h4>
-                <a href="https://www.linkedin.com/in/uday-singh-4b6609252?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">LinkedIn Profile</a>
-            </div>
-            <div class="contact-item">
-                <h4>Address</h4>
+                <h4>Location</h4>
                 <p>Nangloi, Delhi (110041)</p>
             </div>
         </div>
@@ -203,3 +209,4 @@
 
 </body>
 </html>
+
