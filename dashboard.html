@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Dashboard | Uday Singh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --bg: #FDFCFB; 
+            --text: #232F3E; 
+            --accent: #A68966; 
+            --white: #ffffff;
+        }
+        
+        body { 
+            margin: 0; 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Premium Navigation Bar */
+        .nav-header { 
+            padding: 15px 40px; 
+            background: rgba(255, 255, 255, 0.95); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: sticky; top: 0; z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-btn { 
+            text-decoration: none; 
+            color: var(--text); 
+            font-weight: 500; 
+            font-size: 0.85rem; 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .back-btn:hover { color: var(--accent); }
+
+        .dashboard-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+
+        /* Top Info Section - Hiring Manager ko impress karne ke liye */
+        .info-bar {
+            background: var(--white);
+            padding: 20px 40px;
+            border-bottom: 1px solid rgba(166,137,102,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .metric {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metric span.label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .metric span.value {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        /* Iframe Styles */
+        .iframe-wrapper {
+            width: 100%;
+            height: calc(100vh - 140px);
+            background: #fff;
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Loading Animation */
+        .loader-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            font-size: 0.9rem;
+            color: #A68966;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) {
+            .nav-header { padding: 15px 20px; }
+            .info-bar { padding: 15px 20px; flex-direction: column; align-items: flex-start; }
+            .iframe-wrapper { height: calc(100vh - 250px); }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="nav-header">
+        <a href="index.html" class="back-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Exit Viewer
+        </a>
+        <div class="dashboard-title">Portfolio Analytics</div>
+        <div style="width: 100px;"></div> </header>
+
+    <div class="info-bar">
+        <div class="metric">
+            <span class="label">Project</span>
+            <span class="value">World Bank Global Indicators</span>
+        </div>
+        <div class="metric">
+            <span class="label">Tools Used</span>
+            <span class="value">Python • Plotly • Data Cleaning</span>
+        </div>
+        <div class="metric">
+            <span class="label">Status</span>
+            <span class="value" style="color: #27ae60;">● Live Interactive</span>
+        </div>
+    </div>
+
+    <div class="iframe-wrapper">
+        <div class="loader-text">Analyzing Datasets...</div>
+        <iframe src="Dashboard_worldbsnk.html"></iframe>
+    </div>
+
+</body>
+</html>
