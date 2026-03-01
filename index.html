@@ -7,11 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --bg: #FDFCFB; 
-            --text: #232F3E; 
-            --accent: #A68966; 
+            --bg: #FDFCFB; /* Wahi premium cream background */
+            --text: #232F3E; /* Dark Navy Slate */
+            --accent: #A68966; /* Gold/Bronze Accent */
             --white: #ffffff;
-            --dark-card: #1a222c; /* Dashboard stack jaisa dark color */
+            --dark-card: #1a222c; /* Premium Dark Contrast (Tech Stack style) */
             --soft-shadow: 0 15px 35px rgba(166,137,102,0.1);
         }
         
@@ -40,25 +40,27 @@
 
         h1 { 
             font-family: 'Playfair Display', serif; 
-            font-size: clamp(3rem, 10vw, 4.5rem); 
+            font-size: clamp(3.5rem, 10vw, 5rem); 
             margin: 0; 
             color: var(--text); 
             line-height: 1.1;
+            font-weight: 700;
         }
         
         .intro-box { 
             background: var(--white); 
-            padding: 70px 60px; 
+            padding: 80px 70px; 
             border-radius: 40px; 
             box-shadow: var(--soft-shadow); 
-            margin-bottom: 100px;
+            margin-bottom: 120px;
             border: 1px solid rgba(166,137,102,0.08);
             text-align: center;
+            position: relative;
         }
 
         .intro-box p { 
-            font-size: 1.3rem; 
-            margin-bottom: 45px; 
+            font-size: 1.35rem; 
+            margin-bottom: 50px; 
             color: #4a5568; 
             font-weight: 300;
         }
@@ -68,35 +70,34 @@
         .btn { 
             flex: 0 1 200px;
             padding: 18px 0; 
-            border-radius: 15px; 
+            border-radius: 100px; /* Modern Pill Buttons */
             text-decoration: none; 
             font-weight: 500; 
             font-size: 0.85rem; 
-            transition: 0.4s; 
+            transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1); 
             text-align: center; 
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        .btn-primary { background: var(--accent); color: var(--white); }
-        .btn-outline { border: 1px solid var(--accent); color: var(--accent); }
+        .btn-primary { background: var(--accent); color: var(--white); border: 1px solid var(--accent); }
+        .btn-outline { border: 1px solid #d1d1d1; color: var(--text); }
         .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(166,137,102,0.2); }
 
-        /* NEW: Dark Contact Section like Technology Stack */
+        /* DARK CONTACT CARD STYLE like Technology Stack */
         .contact-card {
             background: var(--dark-card);
             color: var(--white);
-            padding: 60px;
+            padding: 70px;
             border-radius: 40px;
             box-shadow: 0 30px 60px rgba(0,0,0,0.15);
             position: relative;
-            overflow: hidden;
         }
 
         .contact-header { 
             font-family: 'Playfair Display', serif; 
-            font-size: 2.2rem; 
-            margin-bottom: 40px; 
+            font-size: 2.5rem; 
+            margin-bottom: 50px; 
             border-left: 4px solid var(--accent);
             padding-left: 20px;
         }
@@ -104,7 +105,7 @@
         .contact-grid { 
             display: grid; 
             grid-template-columns: repeat(2, 1fr); 
-            gap: 40px; 
+            gap: 50px 40px; 
         }
 
         .contact-item h4 { 
@@ -112,44 +113,36 @@
             font-size: 0.7rem; 
             text-transform: uppercase; 
             color: var(--accent); 
-            letter-spacing: 2px; 
+            letter-spacing: 3px; 
             font-weight: 600;
         }
 
         .contact-item p, .contact-item a { 
             margin: 0; 
-            font-size: 1.1rem; 
+            font-size: 1.15rem; 
             color: rgba(255,255,255,0.9); 
             text-decoration: none; 
             transition: 0.3s;
+            word-break: break-all;
         }
 
         .contact-item a:hover { color: var(--accent); }
 
-        /* Subtle tag style for location/links */
-        .tag-info {
-            display: inline-block;
-            background: rgba(166,137,102,0.15);
-            color: var(--accent);
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
-
         footer { 
-            padding: 80px 0 40px 0; 
+            padding: 100px 0 50px 0; 
             font-size: 0.75rem; 
             opacity: 0.4; 
             text-align: center;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         @media (max-width: 768px) {
-            .contact-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; gap: 30px; }
             .contact-card { padding: 40px 25px; }
             .btn-group { flex-direction: column; align-items: stretch; }
-            .intro-box { padding: 40px 20px; }
+            .intro-box { padding: 50px 25px; }
+            h1 { font-size: 3.5rem; }
         }
     </style>
 </head>
@@ -162,7 +155,7 @@
     </header>
     
     <div class="intro-box">
-        <p>I am a B.Com Graduate with a strong interest in <strong>Corporate Finance</strong> and <strong>Data Analytics</strong>. I build dashboards that turn data into clear business insights.</p>
+        <p>I am a B.Com Graduate with a strong interest in <strong>Corporate Finance</strong> and <strong>Data related work</strong>. I build dashboards that turn data into clear business insights.</p>
         
         <div class="btn-group">
             <a href="dashboard.html" class="btn btn-primary">Projects</a>
@@ -174,20 +167,20 @@
         <div class="contact-header">Let's Connect</div>
         <div class="contact-grid">
             <div class="contact-item">
-                <h4>Direct Email</h4>
+                <h4>Email</h4>
                 <p>uday797112singh@gmail.com</p>
             </div>
             <div class="contact-item">
-                <h4>Professional Network</h4>
-                <a href="https://www.linkedin.com/in/uday-singh-4b6609252" target="_blank">linkedin.com/in/udaysingh ↗</a>
+                <h4>LinkedIn</h4>
+                <a href="https://www.linkedin.com/in/uday-singh-4b6609252" target="_blank">View Professional Profile ↗</a>
             </div>
             <div class="contact-item">
-                <h4>Phone Number</h4>
+                <h4>Phone</h4>
                 <p>+91 7463801119</p>
             </div>
             <div class="contact-item">
                 <h4>Location</h4>
-                <p class="tag-info">Nangloi, Delhi (11041)</p>
+                <p>Nangloi, Delhi (11041)</p>
             </div>
         </div>
     </div>
