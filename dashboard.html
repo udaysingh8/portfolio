@@ -1,121 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Dashboard | Uday Singh</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root { 
-            --bg: #FDFCFB; 
-            --text: #232F3E; 
-            --accent: #A68966; 
-            --white: #ffffff;
-        }
-        
-        body { 
-            margin: 0; 
-            font-family: 'Inter', sans-serif; 
-            background: var(--bg); 
-            color: var(--text);
-            overflow-x: hidden;
+<style>
+        /* Naya Section: Insights ke liye Styling */
+        .project-details {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.6;
         }
 
-        /* Premium Navigation Bar */
-        .nav-header { 
-            padding: 15px 40px; 
-            background: rgba(255, 255, 255, 0.95); 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-            position: sticky; top: 0; z-index: 1000;
-            backdrop-filter: blur(10px);
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
         }
 
-        .back-btn { 
-            text-decoration: none; 
-            color: var(--text); 
-            font-weight: 500; 
-            font-size: 0.85rem; 
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .back-btn:hover { color: var(--accent); }
-
-        .dashboard-title {
+        .detail-box h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            color: var(--text);
-        }
-
-        /* Top Info Section - Hiring Manager ko impress karne ke liye */
-        .info-bar {
-            background: var(--white);
-            padding: 20px 40px;
-            border-bottom: 1px solid rgba(166,137,102,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .metric {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .metric span.label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
             color: var(--accent);
-            font-weight: 600;
+            border-bottom: 1px solid rgba(166,137,102,0.2);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
         }
 
-        .metric span.value {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text);
+        .detail-box ul {
+            padding-left: 20px;
+            color: #555;
         }
 
-        /* Iframe Styles */
-        .iframe-wrapper {
-            width: 100%;
-            height: calc(100vh - 140px);
+        .detail-box li {
+            margin-bottom: 10px;
+        }
+
+        .insight-card {
             background: #fff;
-            position: relative;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-left: 4px solid var(--accent);
         }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Loading Animation */
-        .loader-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            font-size: 0.9rem;
-            color: #A68966;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        @media (max-width: 600px) {
-            .nav-header { padding: 15px 20px; }
-            .info-bar { padding: 15px 20px; flex-direction: column; align-items: flex-start; }
-            .iframe-wrapper { height: calc(100vh - 250px); }
+        @media (max-width: 768px) {
+            .section-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -127,7 +52,8 @@
             Exit Viewer
         </a>
         <div class="dashboard-title">Portfolio Analytics</div>
-        <div style="width: 100px;"></div> </header>
+        <div style="width: 100px;"></div> 
+    </header>
 
     <div class="info-bar">
         <div class="metric">
@@ -148,6 +74,39 @@
         <div class="loader-text">Analyzing Datasets...</div>
         <iframe src="worldbank_Dashboard.html"></iframe>
     </div>
+
+    <section class="project-details">
+        <div class="detail-box">
+            <h3>Project Overview</h3>
+            <p>This interactive dashboard provides a deep dive into the socio-economic development of major world economies from 1960 to 2018. It visualizes the correlation between economic growth, digital adoption, and quality of life across different regions.</p>
+        </div>
+
+        <div class="section-grid">
+            <div class="detail-box">
+                <h3>Technical Process</h3>
+                <ul>
+                    <li><strong>Data Reshaping:</strong> Transformed complex World Bank "Wide Format" data into "Long Format" using <b>Pandas melt()</b> for time-series analysis.</li>
+                    <li><strong>Visualization:</strong> Built a multi-chart interactive layout using <b>Plotly</b> to allow side-by-side country comparisons.</li>
+                    <li><strong>AI Integration:</strong> Implemented a Linear Regression model to forecast GDP trends up to 2030 based on historical slopes.</li>
+                </ul>
+            </div>
+
+            <div class="detail-box">
+                <h3>Key Insights</h3>
+                <div class="insight-card">
+                    <p><strong>Digital Leapfrogging:</strong> India and China show a sharp exponential curve in internet adoption post-2005, directly impacting their service sector GDP.</p>
+                </div>
+                <br>
+                <div class="insight-card">
+                    <p><strong>Quality of Life:</strong> Despite lower GDP per capita, Life Expectancy in developing nations is closing the gap with developed nations at a 40% faster rate.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; color: #888; font-size: 0.8rem; letter-spacing: 1px;">
+            &copy; 2026 Uday Singh | Data Analytics Portfolio
+        </div>
+    </section>
 
 </body>
 </html>
