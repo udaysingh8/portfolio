@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<htPlotlyml lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,7 @@
             --text: #232F3E; 
             --accent: #A68966; 
             --white: #ffffff;
+            --soft-shadow: 0 10px 30px rgba(166,137,102,0.08);
         }
         
         body { 
@@ -21,7 +22,6 @@
             overflow-x: hidden;
         }
 
-        /* Premium Navigation Bar */
         .nav-header { 
             padding: 15px 40px; 
             background: rgba(255, 255, 255, 0.95); 
@@ -34,88 +34,70 @@
         }
 
         .back-btn { 
-            text-decoration: none; 
-            color: var(--text); 
-            font-weight: 500; 
-            font-size: 0.85rem; 
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.85rem; 
+            display: flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: 1px;
         }
 
-        .back-btn:hover { color: var(--accent); }
+        .dashboard-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; }
 
-        .dashboard-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            color: var(--text);
-        }
-
-        /* Top Info Section - Hiring Manager ko impress karne ke liye */
         .info-bar {
-            background: var(--white);
-            padding: 20px 40px;
+            background: var(--white); padding: 20px 40px; 
             border-bottom: 1px solid rgba(166,137,102,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
         }
 
-        .metric {
-            display: flex;
-            flex-direction: column;
-        }
+        .metric { display: flex; flex-direction: column; }
+        .metric .label { font-size: 0.7rem; text-transform: uppercase; color: var(--accent); font-weight: 600; letter-spacing: 1px; }
+        .metric .value { font-size: 1rem; font-weight: 500; }
 
-        .metric span.label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .metric span.value {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text);
-        }
-
-        /* Iframe Styles */
         .iframe-wrapper {
-            width: 100%;
-            height: calc(100vh - 140px);
-            background: #fff;
-            position: relative;
+            width: 100%; height: 75vh; /* Fixed height for dashboard */
+            background: #fff; position: relative;
         }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        iframe { width: 100%; height: 100%; border: none; }
+
+        /* --- NEW: Professional Overview Section --- */
+        .overview-section {
+            max-width: 1000px; margin: 60px auto; padding: 0 24px;
         }
 
-        /* Loading Animation */
-        .loader-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            font-size: 0.9rem;
-            color: #A68966;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        .overview-grid {
+            display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px;
         }
 
-        @media (max-width: 600px) {
+        .content-card {
+            background: var(--white); padding: 40px; border-radius: 20px;
+            box-shadow: var(--soft-shadow); border: 1px solid rgba(166,137,102,0.05);
+        }
+
+        .overview-title {
+            font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 20px;
+            border-left: 4px solid var(--accent); padding-left: 15px;
+        }
+
+        .overview-text { color: #555; line-height: 1.8; font-size: 1rem; }
+
+        .feature-list { list-style: none; padding: 0; margin-top: 20px; }
+        .feature-list li { 
+            padding: 10px 0; border-bottom: 1px solid #f0f0f0; 
+            display: flex; align-items: center; gap: 10px; font-size: 0.95rem;
+        }
+        .feature-list li::before { content: "✔"; color: var(--accent); font-weight: bold; }
+
+        .tech-tag {
+            display: inline-block; background: var(--bg); color: var(--accent);
+            padding: 5px 15px; border-radius: 50px; font-size: 0.8rem;
+            font-weight: 600; margin-right: 8px; margin-top: 10px;
+            border: 1px solid rgba(166,137,102,0.2);
+        }
+
+        footer { text-align: center; padding: 60px 0; opacity: 0.4; font-size: 0.8rem; }
+
+        @media (max-width: 850px) {
+            .overview-grid { grid-template-columns: 1fr; }
+            .iframe-wrapper { height: 60vh; }
             .nav-header { padding: 15px 20px; }
-            .info-bar { padding: 15px 20px; flex-direction: column; align-items: flex-start; }
-            .iframe-wrapper { height: calc(100vh - 250px); }
         }
     </style>
 </head>
@@ -127,7 +109,8 @@
             Exit Viewer
         </a>
         <div class="dashboard-title">Portfolio Analytics</div>
-        <div style="width: 100px;"></div> </header>
+        <div style="width: 100px;"></div>
+    </header>
 
     <div class="info-bar">
         <div class="metric">
@@ -145,42 +128,48 @@
     </div>
 
     <div class="iframe-wrapper">
-        <div class="loader-text">Analyzing Datasets...</div>
         <iframe src="worldbank_Dashboard.html"></iframe>
     </div>
 
-    <section class="project-details">
-        <div class="detail-box">
-            <h3>Project Overview</h3>
-            <p>This interactive dashboard provides a deep dive into the socio-economic development of major world economies from 1960 to 2018. It visualizes the correlation between economic growth, digital adoption, and quality of life across different regions.</p>
-        </div>
-
-        <div class="section-grid">
-            <div class="detail-box">
-                <h3>Technical Process</h3>
-                <ul>
-                    <li><strong>Data Reshaping:</strong> Transformed complex World Bank "Wide Format" data into "Long Format" using <b>Pandas melt()</b> for time-series analysis.</li>
-                    <li><strong>Visualization:</strong> Built a multi-chart interactive layout using <b>Plotly</b> to allow side-by-side country comparisons.</li>
-                    <li><strong>AI Integration:</strong> Implemented a Linear Regression model to forecast GDP trends up to 2030 based on historical slopes.</li>
+    <div class="overview-section">
+        <div class="overview-grid">
+            
+            <div class="content-card">
+                <div class="overview-title">Analysis Objectives</div>
+                <p class="overview-text">
+                    This interactive dashboard provides a deep dive into global economic and social indicators sourced from the <strong>World Bank Open Data</strong>. The analysis focuses on understanding trends in GDP growth, population dynamics, and sustainable development metrics across different regions.
+                </p>
+                <div class="overview-title" style="font-size: 1.4rem; margin-top: 30px;">Key Technical Highlights</div>
+                <ul class="feature-list">
+                    <li><strong>Data Cleaning:</strong> Handled missing values and standardized regional naming using Python Pandas.</li>
+                    <li><strong>Visualization:</strong> Implemented Plotly.js (v2.35.2) for high-fidelity interactive charting.</li>
+                    <li><strong>Responsiveness:</strong> Dashboard layout scales seamlessly for desktop and mobile viewing.</li>
                 </ul>
             </div>
 
-            <div class="detail-box">
-                <h3>Key Insights</h3>
-                <div class="insight-card">
-                    <p><strong>Digital Leapfrogging:</strong> India and China show a sharp exponential curve in internet adoption post-2005, directly impacting their service sector GDP.</p>
-                </div>
-                <br>
-                <div class="insight-card">
-                    <p><strong>Quality of Life:</strong> Despite lower GDP per capita, Life Expectancy in developing nations is closing the gap with developed nations at a 40% faster rate.</p>
+            <div class="content-card" style="background: var(--text); color: #fff;">
+                <div class="overview-title" style="color: var(--accent); border-color: var(--accent);">Technology Stack</div>
+                <p style="opacity: 0.8; font-size: 0.9rem;">Tools used to process and visualize 500+ data points:</p>
+                
+                <div class="tech-tag">Python (Pandas)</div>
+                <div class="tech-tag">Plotly (Visualization)</div>
+                <div class="tech-tag">HTML5 / CSS3</div>
+                <div class="tech-tag">Data Cleaning</div>
+                <div class="tech-tag">GitHub Hosting</div>
+                
+                <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <p style="font-size: 0.85rem; font-style: italic; opacity: 0.7;">
+                        "Turning raw datasets into actionable business intelligence through modern analytics pipelines."
+                    </p>
                 </div>
             </div>
-        </div>
 
-        <div style="text-align: center; margin-top: 50px; color: #888; font-size: 0.8rem; letter-spacing: 1px;">
-            &copy; 2026 Uday Singh | Data Analytics Portfolio
         </div>
-    </section>
+    </div>
+
+    <footer>
+        &copy; 2026 Uday Singh • Data Analytics Project Portfolio
+    </footer>
 
 </body>
 </html>
