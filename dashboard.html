@@ -50,19 +50,23 @@
         .metric .label { font-size: 0.7rem; text-transform: uppercase; color: var(--accent); font-weight: 600; letter-spacing: 1px; }
         .metric .value { font-size: 0.9rem; font-weight: 500; }
 
+        /* HEIGHT ADJUSTED TO REDUCE GAP */
         .iframe-wrapper {
-            width: 100%; height: 75vh; 
-            background: #fff; position: relative;
-            margin-bottom: 0; /* Gap hatane ke liye margin 0 kiya */
+            width: 100%; 
+            height: 550px; /* Fixed height use ki taaki responsive gap na bane */
+            background: #000; /* Dashboard agar dark hai toh ise black rakhein */
+            position: relative;
+            margin-bottom: 0;
             border-bottom: 2px solid var(--accent);
+            overflow: hidden;
         }
 
         iframe { width: 100%; height: 100%; border: none; display: block; }
 
         .overview-section {
             max-width: 1000px; 
-            margin: 0 auto 80px auto; /* Top margin ko 30px se 0 kar diya */
-            padding: 20px 24px; /* Thoda padding adjust kiya */
+            margin: 0 auto; 
+            padding: 40px 24px; /* Gap kam karne ke liye padding fix ki */
         }
 
         .overview-grid {
@@ -76,7 +80,7 @@
 
         .overview-title {
             font-family: 'Playfair Display', serif; font-size: 1.8rem; 
-            margin-top: 0; /* Title ke upar ka default space khatam kiya */
+            margin-top: 0; 
             margin-bottom: 20px;
             border-left: 4px solid var(--accent); padding-left: 15px;
         }
@@ -105,8 +109,9 @@
 
         @media (max-width: 850px) {
             .overview-grid { grid-template-columns: 1fr; }
-            .iframe-wrapper { height: 60vh; }
+            .iframe-wrapper { height: 400px; } /* Mobile ke liye height aur kam */
             .nav-header { padding: 15px 20px; }
+            .overview-section { padding: 20px 20px; }
         }
     </style>
 </head>
