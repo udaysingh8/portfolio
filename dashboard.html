@@ -53,7 +53,7 @@
         .iframe-wrapper {
             width: 100%; height: 75vh; 
             background: #fff; position: relative;
-            margin-bottom: -5px; 
+            margin-bottom: 0; /* Gap hatane ke liye margin 0 kiya */
             border-bottom: 2px solid var(--accent);
         }
 
@@ -61,8 +61,8 @@
 
         .overview-section {
             max-width: 1000px; 
-            margin: 30px auto 100px auto; 
-            padding: 0 24px;
+            margin: 0 auto 80px auto; /* Top margin ko 30px se 0 kar diya */
+            padding: 20px 24px; /* Thoda padding adjust kiya */
         }
 
         .overview-grid {
@@ -75,7 +75,9 @@
         }
 
         .overview-title {
-            font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 20px;
+            font-family: 'Playfair Display', serif; font-size: 1.8rem; 
+            margin-top: 0; /* Title ke upar ka default space khatam kiya */
+            margin-bottom: 20px;
             border-left: 4px solid var(--accent); padding-left: 15px;
         }
 
@@ -96,7 +98,7 @@
         }
 
         .project-separator {
-            height: 2px; background: rgba(166,137,102,0.1); margin: 80px 0; border: none;
+            height: 2px; background: rgba(166,137,102,0.1); margin: 60px 0; border: none;
         }
 
         footer { text-align: center; padding: 60px 0; opacity: 0.4; font-size: 0.8rem; }
@@ -153,7 +155,7 @@
                 </ul>
             </div>
             <div class="content-card" style="background: var(--text); color: #fff;">
-                <div class="overview-title" style="color: var(--accent); border-color: var(--accent);">Technology Stack</div>
+                <div class="overview-title" style="color: var(--accent); border-color: var(--accent); margin-top: 0;">Technology Stack</div>
                 <div class="tech-tag">Python (Pandas)</div>
                 <div class="tech-tag">Plotly (Visualization)</div>
                 <div class="tech-tag">HTML5 / CSS3</div>
@@ -199,7 +201,7 @@
                 </ul>
             </div>
             <div class="content-card" style="background: var(--text); color: #fff;">
-                <div class="overview-title" style="color: var(--accent); border-color: var(--accent);">Technology Stack</div>
+                <div class="overview-title" style="color: var(--accent); border-color: var(--accent); margin-top: 0;">Technology Stack</div>
                 <div class="tech-tag">Python</div>
                 <div class="tech-tag">Plotly (Geospatial)</div>
                 <div class="tech-tag">Market Synthesis</div>
