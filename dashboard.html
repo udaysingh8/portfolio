@@ -41,34 +41,32 @@
         .dashboard-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; }
 
         .info-bar {
-            background: var(--white); padding: 20px 40px; 
+            background: #f8f9fa; padding: 15px 40px; 
             border-bottom: 1px solid rgba(166,137,102,0.1);
             display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
         }
 
         .metric { display: flex; flex-direction: column; }
         .metric .label { font-size: 0.7rem; text-transform: uppercase; color: var(--accent); font-weight: 600; letter-spacing: 1px; }
-        .metric .value { font-size: 1rem; font-weight: 500; }
+        .metric .value { font-size: 0.9rem; font-weight: 500; }
 
         .iframe-wrapper {
-            width: 100%; 
-            height: 70vh; 
-            background: #fff; 
-            position: relative;
+            width: 100%; height: 75vh; 
+            background: #fff; position: relative;
             margin-bottom: -5px; 
+            border-bottom: 2px solid var(--accent);
         }
 
         iframe { width: 100%; height: 100%; border: none; display: block; }
 
         .overview-section {
             max-width: 1000px; 
-            margin: 25px auto 60px auto; 
+            margin: 30px auto 100px auto; 
             padding: 0 24px;
         }
 
         .overview-grid {
             display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px;
-            margin-bottom: 40px; /* Space between project cards */
         }
 
         .content-card {
@@ -97,6 +95,10 @@
             border: 1px solid rgba(166,137,102,0.2);
         }
 
+        .project-separator {
+            height: 2px; background: rgba(166,137,102,0.1); margin: 80px 0; border: none;
+        }
+
         footer { text-align: center; padding: 60px 0; opacity: 0.4; font-size: 0.8rem; }
 
         @media (max-width: 850px) {
@@ -113,18 +115,64 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
             Exit Viewer
         </a>
-        <div class="dashboard-title">Portfolio Analytics</div>
+        <div class="dashboard-title">Project Portfolio</div>
         <div style="width: 100px;"></div>
     </header>
 
     <div class="info-bar">
         <div class="metric">
-            <span class="label">Primary View</span>
-            <span class="value">Global Gourmet Live</span>
+            <span class="label">Project 01</span>
+            <span class="value">World Bank Global Indicators</span>
         </div>
         <div class="metric">
-            <span class="label">Tools Used</span>
-            <span class="value">Python • Plotly • Data Science</span>
+            <span class="label">Primary Tools</span>
+            <span class="value">Python • Plotly • Data Cleaning</span>
+        </div>
+        <div class="metric">
+            <span class="label">Status</span>
+            <span class="value" style="color: #27ae60;">● Live Interactive</span>
+        </div>
+    </div>
+
+    <div class="iframe-wrapper">
+        <iframe src="worldbank_Dashboard.html"></iframe>
+    </div>
+
+    <div class="overview-section">
+        <div class="overview-grid">
+            <div class="content-card">
+                <div class="overview-title">Analysis Objectives</div>
+                <p class="overview-text">
+                    This interactive dashboard provides a deep dive into global economic and social indicators sourced from the <strong>World Bank Open Data</strong>. The analysis focuses on understanding trends in GDP growth, population dynamics, and sustainable development metrics across different regions.
+                </p>
+                <div class="overview-title" style="font-size: 1.4rem; margin-top: 30px;">Key Technical Highlights</div>
+                <ul class="feature-list">
+                    <li><strong>Data Cleaning:</strong> Handled missing values and standardized regional naming using Python Pandas.</li>
+                    <li><strong>Visualization:</strong> Implemented Plotly.js for high-fidelity interactive charting.</li>
+                    <li><strong>Responsiveness:</strong> Dashboard layout scales seamlessly for desktop and mobile viewing.</li>
+                </ul>
+            </div>
+            <div class="content-card" style="background: var(--text); color: #fff;">
+                <div class="overview-title" style="color: var(--accent); border-color: var(--accent);">Technology Stack</div>
+                <div class="tech-tag">Python (Pandas)</div>
+                <div class="tech-tag">Plotly (Visualization)</div>
+                <div class="tech-tag">HTML5 / CSS3</div>
+                <div class="tech-tag">Data Cleaning</div>
+                <div class="tech-tag">GitHub Hosting</div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="project-separator">
+
+    <div class="info-bar">
+        <div class="metric">
+            <span class="label">Project 02</span>
+            <span class="value">Global Gourmet Live Analytics</span>
+        </div>
+        <div class="metric">
+            <span class="label">Primary Tools</span>
+            <span class="value">Python • Market Synthesis • Plotly</span>
         </div>
         <div class="metric">
             <span class="label">Status</span>
@@ -137,53 +185,28 @@
     </div>
 
     <div class="overview-section">
-        
         <div class="overview-grid">
             <div class="content-card">
-                <div class="overview-title">01. Global Gourmet Analytics</div>
+                <div class="overview-title">Culinary Market Analytics</div>
                 <p class="overview-text">
-                    This interactive dashboard provides a comprehensive look into international culinary trends and market dynamics. This project analyzes consumer preferences, pricing models, and regional demand for gourmet food sectors globally.
+                    The <strong>Global Gourmet Dashboard</strong> offers insights into international food trends and consumer pricing. It synthesizes complex data to show regional demand for gourmet sectors, helping businesses identify emerging market opportunities.
                 </p>
                 <div class="overview-title" style="font-size: 1.4rem; margin-top: 30px;">Key Technical Highlights</div>
                 <ul class="feature-list">
-                    <li><strong>Market Mapping:</strong> Used Plotly for dynamic mapping of gourmet food trends across continents.</li>
-                    <li><strong>Data Synthesis:</strong> Integrated multiple datasets to provide a unified market view.</li>
-                    <li><strong>UI Design:</strong> Clean, executive-focused interface for high-level business decisions.</li>
+                    <li><strong>Geospatial Mapping:</strong> Dynamic Plotly maps showing food price inflation and trends.</li>
+                    <li><strong>Trend Prediction:</strong> Integrated time-series data to visualize culinary shifts.</li>
+                    <li><strong>Executive UI:</strong> Simplified complex data into high-level business KPIs.</li>
                 </ul>
             </div>
-
             <div class="content-card" style="background: var(--text); color: #fff;">
-                <div class="overview-title" style="color: var(--accent); border-color: var(--accent);">Project 01 Tech</div>
-                <div class="tech-tag">Python (Processing)</div>
-                <div class="tech-tag">Plotly (Interactive)</div>
-                <div class="tech-tag">HTML5 / CSS3</div>
-                <div class="tech-tag">Market Analysis</div>
+                <div class="overview-title" style="color: var(--accent); border-color: var(--accent);">Technology Stack</div>
+                <div class="tech-tag">Python</div>
+                <div class="tech-tag">Plotly (Geospatial)</div>
+                <div class="tech-tag">Market Synthesis</div>
+                <div class="tech-tag">Dynamic UI</div>
+                <div class="tech-tag">Responsive Analytics</div>
             </div>
         </div>
-
-        <div class="overview-grid">
-            <div class="content-card">
-                <div class="overview-title">02. World Bank Global Indicators</div>
-                <p class="overview-text">
-                    A deep dive into global economic and social indicators sourced from the <strong>World Bank Open Data</strong>. Focuses on GDP growth, population dynamics, and sustainable development metrics.
-                </p>
-                <div class="overview-title" style="font-size: 1.4rem; margin-top: 30px;">Key Technical Highlights</div>
-                <ul class="feature-list">
-                    <li><strong>Data Cleaning:</strong> Standardized regional naming using Python Pandas.</li>
-                    <li><strong>High-Fidelity Charts:</strong> Plotly.js for interactive economic trend lines.</li>
-                    <li><strong>Data Modeling:</strong> Handled large-scale datasets with high accuracy.</li>
-                </ul>
-            </div>
-
-            <div class="content-card" style="background: var(--text); color: #fff;">
-                <div class="overview-title" style="color: var(--accent); border-color: var(--accent);">Project 02 Tech</div>
-                <div class="tech-tag">Python (Pandas)</div>
-                <div class="tech-tag">Plotly.js</div>
-                <div class="tech-tag">Economic Modeling</div>
-                <div class="tech-tag">Data Cleaning</div>
-            </div>
-        </div>
-
     </div>
 
     <footer>
