@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Portfolio | Uday Singh</title>
+    <title>Interactive Dashboard | Uday Singh</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root { 
@@ -14,94 +14,153 @@
             --soft-shadow: 0 10px 30px rgba(166,137,102,0.08);
         }
         
-        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
-
-        /* Navigation */
-        .nav-header { 
-            padding: 15px 40px; background: rgba(255, 255, 255, 0.95); 
-            display: flex; justify-content: space-between; align-items: center; 
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px);
+        body { 
+            margin: 0; 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            color: var(--text);
+            overflow-x: hidden;
         }
-        .back-btn { text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; text-transform: uppercase; }
 
-        /* Dashboard Section - Sabse Important Part */
-        .info-bar { background: #f8f9fa; padding: 15px 40px; border-bottom: 1px solid rgba(166,137,102,0.1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
-        .metric .label { font-size: 0.7rem; text-transform: uppercase; color: var(--accent); font-weight: 600; display: block; }
+        .nav-header { 
+            padding: 15px 40px; 
+            background: rgba(255, 255, 255, 0.95); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: sticky; top: 0; z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-btn { 
+            text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.85rem; 
+            display: flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .dashboard-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; }
+
+        .info-bar {
+            background: #f8f9fa; padding: 15px 40px; 
+            border-bottom: 1px solid rgba(166,137,102,0.1);
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
+        }
+
+        .metric { display: flex; flex-direction: column; }
+        .metric .label { font-size: 0.7rem; text-transform: uppercase; color: var(--accent); font-weight: 600; letter-spacing: 1px; }
         .metric .value { font-size: 0.9rem; font-weight: 500; }
 
-        .iframe-container {
-            width: 100%;
-            background: #111; /* Dark theme dashboards ke liye */
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* PC ke liye settings */
         .iframe-wrapper {
-            width: 100%;
-            height: 80vh; /* PC par acchi height dikhegi */
-            min-height: 500px;
-            border: none;
+            width: 100%; height: 75vh; 
+            background: #fff; position: relative;
+            margin-bottom: 0; /* Gap hatane ke liye margin 0 kiya */
+            border-bottom: 2px solid var(--accent);
         }
 
         iframe { width: 100%; height: 100%; border: none; display: block; }
 
-        /* Mobile ke liye responsive adjustments */
-        @media (max-width: 768px) {
-            .nav-header { padding: 10px 20px; }
-            .info-bar { padding: 10px 20px; }
-            
-            .iframe-wrapper {
-                height: auto;
-                aspect-ratio: 4 / 5; /* Mobile par vertical space zyada chahiye graph ke liye */
-                min-height: 450px;
-            }
-            
-            .overview-grid { grid-template-columns: 1fr !pt !important; }
+        .overview-section {
+            max-width: 1000px; 
+            margin: 0 auto 80px auto; /* Top margin ko 30px se 0 kar diya */
+            padding: 20px 24px; /* Thoda padding adjust kiya */
         }
 
-        /* Content Layout */
-        .overview-section { max-width: 1100px; margin: 0 auto; padding: 20px 24px 80px 24px; }
-        .overview-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 30px; margin-top: 10px; }
-        
-        .content-card { background: var(--white); padding: 35px; border-radius: 15px; box-shadow: var(--soft-shadow); border: 1px solid rgba(0,0,0,0.03); }
-        .overview-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin: 0 0 15px 0; border-left: 4px solid var(--accent); padding-left: 15px; }
-        
-        .tech-tag { display: inline-block; background: #f0f0f0; color: var(--text); padding: 5px 12px; border-radius: 4px; font-size: 0.75rem; margin: 5px 3px; font-weight: 600; }
-        .project-separator { height: 1px; background: #eee; margin: 50px 0; border: none; }
+        .overview-grid {
+            display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px;
+        }
+
+        .content-card {
+            background: var(--white); padding: 40px; border-radius: 20px;
+            box-shadow: var(--soft-shadow); border: 1px solid rgba(166,137,102,0.05);
+        }
+
+        .overview-title {
+            font-family: 'Playfair Display', serif; font-size: 1.8rem; 
+            margin-top: 0; /* Title ke upar ka default space khatam kiya */
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent); padding-left: 15px;
+        }
+
+        .overview-text { color: #555; line-height: 1.8; font-size: 1rem; }
+
+        .feature-list { list-style: none; padding: 0; margin-top: 20px; }
+        .feature-list li { 
+            padding: 10px 0; border-bottom: 1px solid #f0f0f0; 
+            display: flex; align-items: center; gap: 10px; font-size: 0.95rem;
+        }
+        .feature-list li::before { content: "✔"; color: var(--accent); font-weight: bold; }
+
+        .tech-tag {
+            display: inline-block; background: var(--bg); color: var(--accent);
+            padding: 5px 15px; border-radius: 50px; font-size: 0.8rem;
+            font-weight: 600; margin-right: 8px; margin-top: 10px;
+            border: 1px solid rgba(166,137,102,0.2);
+        }
+
+        .project-separator {
+            height: 2px; background: rgba(166,137,102,0.1); margin: 60px 0; border: none;
+        }
+
+        footer { text-align: center; padding: 60px 0; opacity: 0.4; font-size: 0.8rem; }
+
+        @media (max-width: 850px) {
+            .overview-grid { grid-template-columns: 1fr; }
+            .iframe-wrapper { height: 60vh; }
+            .nav-header { padding: 15px 20px; }
+        }
     </style>
 </head>
 <body>
 
     <header class="nav-header">
-        <a href="#" class="back-btn">← Exit Viewer</a>
-        <div style="font-family: 'Playfair Display'; font-weight: 700;">Project Portfolio</div>
-        <div style="width: 80px;"></div>
+        <a href="index.html" class="back-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Exit Viewer
+        </a>
+        <div class="dashboard-title">Project Portfolio</div>
+        <div style="width: 100px;"></div>
     </header>
 
     <div class="info-bar">
-        <div class="metric"><span class="label">Project</span><span class="value">World Bank Data Analysis</span></div>
-        <div class="metric"><span class="label">Tools</span><span class="value">Python • Plotly</span></div>
-        <div class="metric"><span class="label">Status</span><span class="value" style="color: #27ae60;">● Live</span></div>
+        <div class="metric">
+            <span class="label">Project 01</span>
+            <span class="value">World Bank Global Indicators</span>
+        </div>
+        <div class="metric">
+            <span class="label">Primary Tools</span>
+            <span class="value">Python • Plotly • Data Cleaning</span>
+        </div>
+        <div class="metric">
+            <span class="label">Status</span>
+            <span class="value" style="color: #27ae60;">● Live Interactive</span>
+        </div>
     </div>
 
-    <div class="iframe-container">
-        <div class="iframe-wrapper">
-            <iframe src="worldbank_Dashboard.html"></iframe>
-        </div>
+    <div class="iframe-wrapper">
+        <iframe src="worldbank_Dashboard.html"></iframe>
     </div>
 
     <div class="overview-section">
         <div class="overview-grid">
             <div class="content-card">
-                <h2 class="overview-title">Analysis Objectives</h2>
-                <p style="line-height: 1.6; color: #555;">Detailed insights into global indicators using interactive data visualization techniques.</p>
+                <div class="overview-title">Analysis Objectives</div>
+                <p class="overview-text">
+                    This interactive dashboard provides a deep dive into global economic and social indicators sourced from the <strong>World Bank Open Data</strong>. The analysis focuses on understanding trends in GDP growth, population dynamics, and sustainable development metrics across different regions.
+                </p>
+                <div class="overview-title" style="font-size: 1.4rem; margin-top: 30px;">Key Technical Highlights</div>
+                <ul class="feature-list">
+                    <li><strong>Data Cleaning:</strong> Handled missing values and standardized regional naming using Python Pandas.</li>
+                    <li><strong>Visualization:</strong> Implemented Plotly.js for high-fidelity interactive charting.</li>
+                    <li><strong>Responsiveness:</strong> Dashboard layout scales seamlessly for desktop and mobile viewing.</li>
+                </ul>
             </div>
-            <div class="content-card" style="background: #232F3E; color: white;">
-                <h2 class="overview-title" style="color: var(--accent);">Tech Stack</h2>
-                <span class="tech-tag">Pandas</span>
-                <span class="tech-tag">Plotly</span>
-                <span class="tech-tag">GitHub</span>
+            <div class="content-card" style="background: var(--text); color: #fff;">
+                <div class="overview-title" style="color: var(--accent); border-color: var(--accent); margin-top: 0;">Technology Stack</div>
+                <div class="tech-tag">Python (Pandas)</div>
+                <div class="tech-tag">Plotly (Visualization)</div>
+                <div class="tech-tag">HTML5 / CSS3</div>
+                <div class="tech-tag">Data Cleaning</div>
+                <div class="tech-tag">GitHub Hosting</div>
             </div>
         </div>
     </div>
@@ -109,16 +168,52 @@
     <hr class="project-separator">
 
     <div class="info-bar">
-        <div class="metric"><span class="label">Project</span><span class="value">Global Gourmet Analytics</span></div>
-        <div class="metric"><span class="label">Tools</span><span class="value">Python • Market Synthesis</span></div>
-        <div class="metric"><span class="label">Status</span><span class="value" style="color: #27ae60;">● Live</span></div>
-    </div>
-
-    <div class="iframe-container">
-        <div class="iframe-wrapper">
-            <iframe src="Global_Gourmet_Live_Dashboard.html"></iframe>
+        <div class="metric">
+            <span class="label">Project 02</span>
+            <span class="value">Global Gourmet Live Analytics</span>
+        </div>
+        <div class="metric">
+            <span class="label">Primary Tools</span>
+            <span class="value">Python • Market Synthesis • Plotly</span>
+        </div>
+        <div class="metric">
+            <span class="label">Status</span>
+            <span class="value" style="color: #27ae60;">● Live Interactive</span>
         </div>
     </div>
+
+    <div class="iframe-wrapper">
+        <iframe src="Global_Gourmet_Live_Dashboard.html"></iframe>
+    </div>
+
+    <div class="overview-section">
+        <div class="overview-grid">
+            <div class="content-card">
+                <div class="overview-title">Culinary Market Analytics</div>
+                <p class="overview-text">
+                    The <strong>Global Gourmet Dashboard</strong> offers insights into international food trends and consumer pricing. It synthesizes complex data to show regional demand for gourmet sectors, helping businesses identify emerging market opportunities.
+                </p>
+                <div class="overview-title" style="font-size: 1.4rem; margin-top: 30px;">Key Technical Highlights</div>
+                <ul class="feature-list">
+                    <li><strong>Geospatial Mapping:</strong> Dynamic Plotly maps showing food price inflation and trends.</li>
+                    <li><strong>Trend Prediction:</strong> Integrated time-series data to visualize culinary shifts.</li>
+                    <li><strong>Executive UI:</strong> Simplified complex data into high-level business KPIs.</li>
+                </ul>
+            </div>
+            <div class="content-card" style="background: var(--text); color: #fff;">
+                <div class="overview-title" style="color: var(--accent); border-color: var(--accent); margin-top: 0;">Technology Stack</div>
+                <div class="tech-tag">Python</div>
+                <div class="tech-tag">Plotly (Geospatial)</div>
+                <div class="tech-tag">Market Synthesis</div>
+                <div class="tech-tag">Dynamic UI</div>
+                <div class="tech-tag">Responsive Analytics</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Uday Singh • Data Analytics Project Portfolio
+    </footer>
 
 </body>
 </html>
